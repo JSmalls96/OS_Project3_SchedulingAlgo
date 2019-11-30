@@ -1,6 +1,6 @@
 package sch;
 
-public class Job {
+public class Job implements Cloneable{
     private String name; //name of job
     private int sTime, duration,remDuration,waitTime; //start time and duration of job
     private boolean running = false;
@@ -78,6 +78,10 @@ public class Job {
         return this.running;
     }
 
+    public Job createClone() throws CloneNotSupportedException{
+        Job clonedJob = (Job)super.clone();
+        return clonedJob;
+    }
     public void toggleRunning(){
         this.running = ((this.running)?false:true);
     }
@@ -93,7 +97,11 @@ public class Job {
         StringBuilder sb = new StringBuilder();
         sb.append(this.name+ " ");
         for(int i=0;i<this.outputArr.length;i++){
-            sb.append(this.outputArr[i]);
+            if(this.outputArr[i]==null){
+                sb.append(" ");
+            }else{
+                sb.append(this.outputArr[i]);
+            }
         }
         return sb.toString();
     }

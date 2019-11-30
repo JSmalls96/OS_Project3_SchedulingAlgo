@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Main {
 
     static ArrayList<Job> jobs = new ArrayList<>();    //job queue
+    static ArrayList<Job> copy = new ArrayList<>();    //copy
     static BufferedReader br;
     static File file;
     static Scheduler sch = new Scheduler();
@@ -49,24 +50,24 @@ public class Main {
     }
 
     private static void promptUser(){
-        System.out.println("\tSelect Scheduling Algorithm\n\tFCFS\n\tRR\n\tSPN\n\tSRT\n\tHRRN\n\tFB\n\tALL\n\tEXIT");
-        Scanner in = new Scanner(System.in);    //input scanner
-        System.out.print("Make your selection: ");
-        switch (in.nextLine()){
-            case "FCFS": sch.schedule_fcfs(jobs,totalDuration);
-                promptUser();break;
-            case "RR": sch.schedule_rr(jobs,totalDuration); break;
-            case "SPN":
-                sch.schedule_spn(jobs,totalDuration);
-                promptUser();
-                break;
-            case "SRT": sch.schedule_srt(jobs,totalDuration); break;
-            case "HRRN": sch.schedule_hrrn(jobs,totalDuration); break;
-            case "FB": sch.schedule_fb(jobs,totalDuration); break;
-            case "ALL": sch.schedule_all(jobs,totalDuration); break;
-            case "EXIT": System.exit(0); break;
-            case " ": System.out.println("INPUT NEEDED!"); promptUser(); break;
-            default: System.out.println("INVALID CHOICE"); promptUser(); break;
+        try{
+            System.out.println("\n\tSelect Scheduling Algorithm\n\tFCFS\n\tRR\n\tSPN\n\tSRT\n\tHRRN\n\tFB\n\tALL\n\tEXIT");
+            Scanner in = new Scanner(System.in);    //input scanner
+            System.out.print("Make your selection: ");
+            switch (in.nextLine()){
+                case "FCFS": sch.schedule_fcfs(jobs,totalDuration);break;
+                case "RR": sch.schedule_rr(jobs,totalDuration); break;
+                case "SPN": sch.schedule_spn(jobs,totalDuration);break;
+                case "SRT": sch.schedule_srt(jobs,totalDuration); break;
+                case "HRRN": sch.schedule_hrrn(jobs,totalDuration); break;
+                case "FB": sch.schedule_fb(jobs,totalDuration); break;
+                case "ALL": sch.schedule_all(jobs,totalDuration);break;
+                case "EXIT": System.exit(0); break;
+                case " ": System.out.println("INPUT NEEDED!"); promptUser(); break;
+                default: System.out.println("INVALID CHOICE"); promptUser(); break;
+            }
+        }catch (CloneNotSupportedException e){
+            e.printStackTrace();
         }
     }
 }
