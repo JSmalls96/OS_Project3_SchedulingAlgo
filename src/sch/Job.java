@@ -3,7 +3,6 @@ package sch;
 public class Job implements Cloneable{
     private String name; //name of job
     private int sTime, duration,remDuration,waitTime; //start time and duration of job
-    private boolean running = false;
     public String[] outputArr;
 
     //constructor
@@ -49,8 +48,8 @@ public class Job implements Cloneable{
         this.waitTime++;
     }
 
-    public void setWaitTime(int n){
-        this.waitTime=n;
+    public void incWaitTime(int n){
+        this.waitTime+=n;
     }
 
     public void incWT(){
@@ -61,6 +60,9 @@ public class Job implements Cloneable{
         this.outputArr= new String[totalDuration];
     }
 
+    public float getResponseRatio(){
+        return (((this.waitTime-sTime)+this.duration)/this.duration);
+    }
 
     public String getName(){
         return this.name;
@@ -74,22 +76,11 @@ public class Job implements Cloneable{
         return this.duration;
     }
 
-    public boolean getState(){
-        return this.running;
-    }
 
     public Job createClone() throws CloneNotSupportedException{
         Job clonedJob = (Job)super.clone();
         return clonedJob;
     }
-    public void toggleRunning(){
-        this.running = ((this.running)?false:true);
-    }
-
-//    @Override
-//    public String toString() {
-//        return "name: "+this.name+" start time: "+this.sTime+" duration: "+this.duration;
-//    }
 
 
     @Override

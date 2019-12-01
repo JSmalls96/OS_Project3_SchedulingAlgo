@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ea4077-c22b-43cf-b9dd-9358a94f09ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scheduler/sch/Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scheduler/sch/Scheduler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sch/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Job.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sch/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Scheduler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,34 +34,35 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sch/Job.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="28" selection-start-line="28" selection-end-line="28" />
+                <state relative-caret-position="396">
+                  <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
                   <folding>
-                    <element signature="e#662#663#0" expanded="true" />
-                    <element signature="e#715#716#0" expanded="true" />
-                    <element signature="e#734#735#0" expanded="true" />
-                    <element signature="e#719#720#0" expanded="true" />
-                    <element signature="e#755#756#0" expanded="true" />
-                    <element signature="e#798#799#0" expanded="true" />
-                    <element signature="e#817#818#0" expanded="true" />
-                    <element signature="e#521#522#0" expanded="true" />
-                    <element signature="e#547#548#0" expanded="true" />
-                    <element signature="e#933#934#0" expanded="true" />
-                    <element signature="e#963#964#0" expanded="true" />
-                    <element signature="e#987#988#0" expanded="true" />
-                    <element signature="e#1006#1007#0" expanded="true" />
-                    <element signature="e#586#587#0" expanded="true" />
-                    <element signature="e#609#610#0" expanded="true" />
-                    <element signature="e#1227#1228#0" expanded="true" />
-                    <element signature="e#1279#1280#0" expanded="true" />
-                    <element signature="e#492#493#0" expanded="true" />
-                    <element signature="e#513#514#0" expanded="true" />
-                    <element signature="e#552#553#0" expanded="true" />
-                    <element signature="e#578#579#0" expanded="true" />
-                    <element signature="e#612#613#0" expanded="true" />
-                    <element signature="e#633#634#0" expanded="true" />
-                    <element signature="e#558#559#0" expanded="true" />
-                    <element signature="e#616#617#0" expanded="true" />
+                    <element signature="e#659#660#0" expanded="true" />
+                    <element signature="e#698#699#0" expanded="true" />
+                    <element signature="e#738#739#0" expanded="true" />
+                    <element signature="e#772#773#0" expanded="true" />
+                    <element signature="e#812#813#0" expanded="true" />
+                    <element signature="e#847#848#0" expanded="true" />
+                    <element signature="e#882#883#0" expanded="true" />
+                    <element signature="e#917#918#0" expanded="true" />
+                    <element signature="e#948#949#0" expanded="true" />
+                    <element signature="e#984#985#0" expanded="true" />
+                    <element signature="e#1016#1017#0" expanded="true" />
+                    <element signature="e#1047#1048#0" expanded="true" />
+                    <element signature="e#1084#1085#0" expanded="true" />
+                    <element signature="e#1116#1117#0" expanded="true" />
+                    <element signature="e#1142#1143#0" expanded="true" />
+                    <element signature="e#1173#1174#0" expanded="true" />
+                    <element signature="e#1223#1224#0" expanded="true" />
+                    <element signature="e#1280#1281#0" expanded="true" />
+                    <element signature="e#1306#1307#0" expanded="true" />
+                    <element signature="e#1382#1383#0" expanded="true" />
+                    <element signature="e#1389#1390#0" expanded="true" />
+                    <element signature="e#1421#1422#0" expanded="true" />
+                    <element signature="e#1449#1450#0" expanded="true" />
+                    <element signature="e#1482#1483#0" expanded="true" />
+                    <element signature="e#1513#1514#0" expanded="true" />
+                    <element signature="e#1549#1550#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -75,29 +75,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1804">
-                  <caret line="313" column="17" lean-forward="true" selection-start-line="313" selection-start-column="17" selection-end-line="313" selection-end-column="17" />
+                <state relative-caret-position="528">
+                  <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
                   <folding>
                     <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
                     <element signature="method#schedule_fcfs#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
-                    <element signature="method#schedule_spn#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
-                    <element signature="method#schedule_srt#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
-                    <element signature="method#schedule_hrrn#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
-                    <element signature="method#schedule_fb#0;class#Scheduler#0" />
                     <element signature="method#schedule_all#0;class#Scheduler#0" />
-                    <element signature="method#mapAdd#0;class#Scheduler#0" />
-                    <element signature="e#13187#13261#1" />
-                    <element signature="method#printArrayList#0;class#Scheduler#0" />
-                    <element signature="method#printMap#0;class#Scheduler#0" />
                     <element signature="method#properClone#0;class#Scheduler#0" />
                     <element signature="method#output#0;class#Scheduler#0" />
                     <element signature="method#checkStart#0;class#Scheduler#0" />
-                    <element signature="method#getMin#0;class#Scheduler#0" />
                     <element signature="method#getMin2#0;class#Scheduler#0" />
                     <element signature="method#instArr#0;class#Scheduler#0" />
                   </folding>
@@ -222,12 +213,12 @@
       <updated>1574881191081</updated>
       <workItem from="1574881195450" duration="4761000" />
       <workItem from="1574890241196" duration="7619000" />
-      <workItem from="1575057200745" duration="60938000" />
+      <workItem from="1575057200745" duration="63319000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73318000" />
+    <option name="totallyTimeSpent" value="75699000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -501,63 +492,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="396">
+          <caret line="63" column="17" selection-start-line="63" selection-start-column="17" selection-end-line="63" selection-end-column="17" />
           <folding>
-            <element signature="e#662#663#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#734#735#0" expanded="true" />
-            <element signature="e#719#720#0" expanded="true" />
-            <element signature="e#755#756#0" expanded="true" />
-            <element signature="e#798#799#0" expanded="true" />
-            <element signature="e#817#818#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#933#934#0" expanded="true" />
-            <element signature="e#963#964#0" expanded="true" />
-            <element signature="e#987#988#0" expanded="true" />
-            <element signature="e#1006#1007#0" expanded="true" />
-            <element signature="e#586#587#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#1227#1228#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#513#514#0" expanded="true" />
-            <element signature="e#552#553#0" expanded="true" />
-            <element signature="e#578#579#0" expanded="true" />
-            <element signature="e#612#613#0" expanded="true" />
-            <element signature="e#633#634#0" expanded="true" />
-            <element signature="e#558#559#0" expanded="true" />
-            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#698#699#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#772#773#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#847#848#0" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#917#918#0" expanded="true" />
+            <element signature="e#948#949#0" expanded="true" />
+            <element signature="e#984#985#0" expanded="true" />
+            <element signature="e#1016#1017#0" expanded="true" />
+            <element signature="e#1047#1048#0" expanded="true" />
+            <element signature="e#1084#1085#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1173#1174#0" expanded="true" />
+            <element signature="e#1223#1224#0" expanded="true" />
+            <element signature="e#1280#1281#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1389#1390#0" expanded="true" />
+            <element signature="e#1421#1422#0" expanded="true" />
+            <element signature="e#1449#1450#0" expanded="true" />
+            <element signature="e#1482#1483#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1804">
-          <caret line="313" column="17" lean-forward="true" selection-start-line="313" selection-start-column="17" selection-end-line="313" selection-end-column="17" />
+        <state relative-caret-position="528">
+          <caret line="228" lean-forward="true" selection-start-line="228" selection-end-line="228" />
           <folding>
             <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
             <element signature="method#schedule_fcfs#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
-            <element signature="method#schedule_spn#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
-            <element signature="method#schedule_srt#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
-            <element signature="method#schedule_hrrn#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
-            <element signature="method#schedule_fb#0;class#Scheduler#0" />
             <element signature="method#schedule_all#0;class#Scheduler#0" />
-            <element signature="method#mapAdd#0;class#Scheduler#0" />
-            <element signature="e#13187#13261#1" />
-            <element signature="method#printArrayList#0;class#Scheduler#0" />
-            <element signature="method#printMap#0;class#Scheduler#0" />
             <element signature="method#properClone#0;class#Scheduler#0" />
             <element signature="method#output#0;class#Scheduler#0" />
             <element signature="method#checkStart#0;class#Scheduler#0" />
-            <element signature="method#getMin#0;class#Scheduler#0" />
             <element signature="method#getMin2#0;class#Scheduler#0" />
             <element signature="method#instArr#0;class#Scheduler#0" />
           </folding>

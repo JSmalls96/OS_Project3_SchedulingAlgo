@@ -65,7 +65,7 @@ public class Scheduler {
         int quantum =1;
         time=0;
         numProcesses=jq.size();
-        System.out.println("SCHEDULED USING ROUND ROBIN\n");
+        System.out.println("\nSCHEDULED USING ROUND ROBIN");
         instArr(jq,totalDuration);
         checkStart(jq,que,time);
         Job activeProcess=que.peek();
@@ -103,8 +103,8 @@ public class Scheduler {
       starvation: possible
   */
     public void schedule_spn(ArrayList<Job> jq, int totalDuration){
-        System.out.println("Inside spn schedule");
-        System.out.println("SCHEDULED USING SHORTEST PROCESS NEXT");
+
+        System.out.println("\nSCHEDULED USING SHORTEST PROCESS NEXT");
         time=0;
         numProcesses = jq.size(); //number of processes parsed from file
         instArr(jq,totalDuration);
@@ -146,7 +146,7 @@ public class Scheduler {
       starvation: possible
     */
     public void schedule_srt(ArrayList<Job> jq, int totalDuration){
-        System.out.println("SCHEDULED USING SHORTEST REMAINING TIME");
+        System.out.println("\nSCHEDULED USING SHORTEST REMAINING TIME");
         Job min;
         numProcesses=jq.size();
         time=0;
@@ -187,9 +187,7 @@ public class Scheduler {
             }
         }
         printMap();
-
         mapOut.clear();
-        System.out.println("\nScheduling "+numProcesses+" jobs took a total of "+totalDuration+ " time units\n");
     }
 
     /*
@@ -203,7 +201,30 @@ public class Scheduler {
       starvation: no
     */
     public void schedule_hrrn(ArrayList<Job> jq, int totalDuration){
-        System.out.println("SCHEDULED USING HIGHEST RESPONSE RATIO NEXT");
+        System.out.println("\nSCHEDULED USING HIGHEST RESPONSE RATIO NEXT");
+        time=0;
+        numProcesses = jq.size(); //number of processes parsed from file
+        instArr(jq,totalDuration);
+        Job activeProcess=jq.remove(0); //process that is being currently run
+        while(jq.size()>0 || activeProcess!=null){
+            int dur = activeProcess.getDuration();
+            for(int i=0; i<totalDuration;i++){
+                while(i<time){i++;}
+                massIncWaitTime(jq,dur);
+                for(;dur>0&&i<totalDuration;dur--,i++,time++){
+                    activeProcess.outputArr[i]="X"; //active location
+                }
+            }
+            mapAdd(activeProcess);
+            if(jq.size()!=0){
+                activeProcess=jq.remove(jq.indexOf(getMaxRR(jq,time)));
+            }else {
+                break;
+            }
+        }
+        printMap();
+        mapOut.clear();
+
     }
 
     /*
@@ -218,7 +239,7 @@ public class Scheduler {
     */
     public void schedule_fb(ArrayList<Job> jq, int totalDuration){
         int quantum = 1;
-        System.out.println("SCHEDULED USING FEEDBACK WITH A QUANTUM OF 1");
+        System.out.println("\nSCHEDULED USING FEEDBACK WITH A QUANTUM OF 1");
     }
 
     // perform all scheduling algorithms on jobs
@@ -255,7 +276,7 @@ public class Scheduler {
     public void printArrayList(ArrayList<Job> jq){
         System.out.println("----------------");
         for (int i=0; i<jq.size();i++){
-            System.out.println(jq.get(i).getName());
+            System.out.println(jq.get(i).getName()+" RR:"+jq.get(i).getResponseRatio());
         }
         System.out.println("----------------");
     }
@@ -311,6 +332,12 @@ public class Scheduler {
         return min;
     }
 
+    public void massIncWaitTime(ArrayList<Job> arr,int dur){
+        for(Job x:arr){
+            x.incWaitTime(dur);
+        }
+    }
+
     //get minimum for spt
     public Job getMin2(ArrayList<Job> arr,int time){
         Job min = null;
@@ -320,10 +347,19 @@ public class Scheduler {
         return min;
     }
 
+    //instantiate arraylists for processes
     public void instArr(ArrayList<Job> j, int totalDuration){
         for(Job t:j){
             t.outputArr = new String[totalDuration];
         }
 
+    }
+
+    public Job getMaxRR(ArrayList<Job> arr,int time){ //get highest response ratio from arraylist
+        Job max = null;
+        for(Job x:arr){
+            max=(max==null||(x.getResponseRatio()>=max.getResponseRatio()&& x.getStart()<=time))?x:max;
+        }
+        return max;
     }
 }
