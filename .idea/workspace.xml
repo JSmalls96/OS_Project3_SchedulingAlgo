@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="35ea4077-c22b-43cf-b9dd-9358a94f09ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scheduler/sch/Job.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scheduler/sch/Job.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scheduler/sch/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scheduler/sch/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scheduler/sch/Scheduler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scheduler/sch/Scheduler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sch/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sch/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Scheduler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,14 +17,14 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.32634607">
+    <splitter split-orientation="horizontal" split-proportion="0.32593507">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/sch/Main.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="26" selection-start-line="26" selection-end-line="26" />
+                <state relative-caret-position="252">
+                  <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -39,10 +35,9 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sch/Job.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="479">
-                  <caret line="102" column="45" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
+                <state relative-caret-position="242">
+                  <caret line="28" selection-start-line="28" selection-end-line="28" />
                   <folding>
-                    <element signature="e#636#637#0" expanded="true" />
                     <element signature="e#662#663#0" expanded="true" />
                     <element signature="e#715#716#0" expanded="true" />
                     <element signature="e#734#735#0" expanded="true" />
@@ -77,26 +72,17 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/StreamEncoder.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="233">
-                  <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="498">
-                  <caret line="300" column="25" selection-start-line="300" selection-start-column="25" selection-end-line="300" selection-end-column="25" />
+                <state relative-caret-position="1804">
+                  <caret line="313" column="17" lean-forward="true" selection-start-line="313" selection-start-column="17" selection-end-line="313" selection-end-column="17" />
                   <folding>
                     <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
                     <element signature="method#schedule_fcfs#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
-                    <element signature="method#schedule_rr#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
+                    <element signature="method#schedule_spn#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
                     <element signature="method#schedule_srt#0;class#Scheduler#0" />
                     <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
@@ -104,99 +90,16 @@
                     <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
                     <element signature="method#schedule_fb#0;class#Scheduler#0" />
                     <element signature="method#schedule_all#0;class#Scheduler#0" />
+                    <element signature="method#mapAdd#0;class#Scheduler#0" />
+                    <element signature="e#13187#13261#1" />
+                    <element signature="method#printArrayList#0;class#Scheduler#0" />
+                    <element signature="method#printMap#0;class#Scheduler#0" />
                     <element signature="method#properClone#0;class#Scheduler#0" />
+                    <element signature="method#output#0;class#Scheduler#0" />
+                    <element signature="method#checkStart#0;class#Scheduler#0" />
+                    <element signature="method#getMin#0;class#Scheduler#0" />
+                    <element signature="method#getMin2#0;class#Scheduler#0" />
                     <element signature="method#instArr#0;class#Scheduler#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="222">
-                  <caret line="494" column="21" selection-start-line="494" selection-start-column="21" selection-end-line="494" selection-end-column="21" />
-                  <folding>
-                    <element signature="e#10189#10190#0" expanded="true" />
-                    <element signature="e#10216#10217#0" expanded="true" />
-                    <element signature="e#15414#15415#0" expanded="true" />
-                    <element signature="e#15459#15460#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/charset/CharsetEncoder.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="470">
-                  <caret line="578" selection-start-line="578" selection-end-line="578" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/UTF_8.class">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="233">
-                  <caret line="618" selection-start-line="618" selection-end-line="618" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/CharBuffer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="330">
-                  <caret line="1024" selection-start-line="1024" selection-end-line="1024" />
-                  <folding>
-                    <element signature="e#27560#27561#0" expanded="true" />
-                    <element signature="e#27610#27611#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/OutputStreamWriter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="264">
-                  <caret line="207" selection-start-line="207" selection-end-line="207" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/BufferedWriter.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="352">
-                  <caret line="129" selection-start-line="129" selection-end-line="129" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/PrintStream.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="807" selection-start-line="807" selection-end-line="807" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/nio/Buffer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="242">
-                  <caret line="225" selection-start-line="225" selection-end-line="225" />
-                  <folding>
-                    <element signature="e#7207#7208#0" expanded="true" />
-                    <element signature="e#8037#8038#0" expanded="true" />
-                    <element signature="e#8065#8066#0" expanded="true" />
-                    <element signature="e#12171#12172#0" expanded="true" />
-                    <element signature="e#12210#12211#0" expanded="true" />
-                    <element signature="e#12489#12490#0" expanded="true" />
-                    <element signature="e#12528#12529#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -221,8 +124,8 @@
       <list>
         <option value="$PROJECT_DIR$/src/Job.java" />
         <option value="$PROJECT_DIR$/src/sch/Main.java" />
-        <option value="$PROJECT_DIR$/src/sch/Scheduler.java" />
         <option value="$PROJECT_DIR$/src/sch/Job.java" />
+        <option value="$PROJECT_DIR$/src/sch/Scheduler.java" />
       </list>
     </option>
   </component>
@@ -319,12 +222,12 @@
       <updated>1574881191081</updated>
       <workItem from="1574881195450" duration="4761000" />
       <workItem from="1574890241196" duration="7619000" />
-      <workItem from="1575057200745" duration="54566000" />
+      <workItem from="1575057200745" duration="60938000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66946000" />
+    <option name="totallyTimeSpent" value="73318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -339,7 +242,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.39443156" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4153132" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39984533" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -363,18 +266,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/sch/Scheduler.java</url>
-          <line>52</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/function/Consumer.java">
@@ -557,13 +448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/StreamEncoder.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/io/OutputStreamWriter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="264">
@@ -585,6 +469,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/sch/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/jre/lib/rt.jar!/sun/nio/cs/StreamEncoder.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/ArrayList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
@@ -598,22 +499,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sch/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Job.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="479">
-          <caret line="102" column="45" selection-start-line="102" selection-start-column="45" selection-end-line="102" selection-end-column="45" />
+        <state relative-caret-position="242">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
           <folding>
-            <element signature="e#636#637#0" expanded="true" />
             <element signature="e#662#663#0" expanded="true" />
             <element signature="e#715#716#0" expanded="true" />
             <element signature="e#734#735#0" expanded="true" />
@@ -645,14 +535,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="300" column="25" selection-start-line="300" selection-start-column="25" selection-end-line="300" selection-end-column="25" />
+        <state relative-caret-position="1804">
+          <caret line="313" column="17" lean-forward="true" selection-start-line="313" selection-start-column="17" selection-end-line="313" selection-end-column="17" />
           <folding>
             <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
             <element signature="method#schedule_fcfs#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
-            <element signature="method#schedule_rr#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
+            <element signature="method#schedule_spn#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
             <element signature="method#schedule_srt#0;class#Scheduler#0" />
             <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
@@ -660,7 +550,15 @@
             <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
             <element signature="method#schedule_fb#0;class#Scheduler#0" />
             <element signature="method#schedule_all#0;class#Scheduler#0" />
+            <element signature="method#mapAdd#0;class#Scheduler#0" />
+            <element signature="e#13187#13261#1" />
+            <element signature="method#printArrayList#0;class#Scheduler#0" />
+            <element signature="method#printMap#0;class#Scheduler#0" />
             <element signature="method#properClone#0;class#Scheduler#0" />
+            <element signature="method#output#0;class#Scheduler#0" />
+            <element signature="method#checkStart#0;class#Scheduler#0" />
+            <element signature="method#getMin#0;class#Scheduler#0" />
+            <element signature="method#getMin2#0;class#Scheduler#0" />
             <element signature="method#instArr#0;class#Scheduler#0" />
           </folding>
         </state>

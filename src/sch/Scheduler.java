@@ -28,7 +28,7 @@ public class Scheduler {
         Job activeProcess; //process that is being currently run
         time=0;
         numProcesses = jq.size(); //number of processes parsed from file
-        System.out.println("SCHEDULED USING FIRST COME FIRST SERVE");
+        System.out.println("SCHEDULED USING FIRST COME FIRST SERVE\n");
         while(jq.size()>0){
             activeProcess=jq.remove(0);
             activeProcess.outputArr= new String[totalDuration];
@@ -61,69 +61,35 @@ public class Scheduler {
         starvation: no
     */
     public void schedule_rr(ArrayList<Job> jq, int totalDuration){
-//        Map<Integer,Job> start_value_pair= new HashMap<>(); //store quick lookup for process and start address
-//        jq.forEach((n)-> start_value_pair.put(n.getStart(),n)); //lookup for processes by start time
-//
-//        Queue<Job> readyQueue = new LinkedList<>(); //ready queue
-//
-//        int quantum = 1;
-//        int numProcesses=jq.size();
-//        int time=0;
-//        int waitTime;
-//
-//        System.out.println("SCHEDULED USING ROUND ROBIN");
-//        Job activeProcess;
-//        while ((activeProcess = start_value_pair.get(time)) == null) {//sets the starting time index for the first process
-//            for(int i=0;i<numProcesses;i++){
-//                jq.get(i).outputArr[time] = " ";
-//            }
-//            time++;
-//        } //following this while the 'time' is the starting time of the first process
-//        activeProcess=start_value_pair.get(time);
-//        readyQueue.add(activeProcess); //sets the starting time index for the first process
-//
-////        while (jq.size()>0 || readyQueue.size()>0) {
-//            //create condition to be added to queue
-//            Job next;
-//            if ((next = readyQueue.poll())!=null) {
-//                System.out.println(next.toString());
-//                if(next.getRemDuration()>0 && next.getRemDuration()>=quantum){
-//                    for(int i=0;i<quantum;i++){
-//                      next.outputArr[time+i]=next.getName();
-//                      time++;
-//                    }
-//                    readyQueue.add(next);
-//                }
-//            }
-//            System.out.println(next.toString());
-
-//        }
-//        output(jq);
-
-
-
-
-
-           //        while(jq.size()>0){
-//            activeProcess=jq.remove(0);
-//            activeProcess.outputArr= new String[totalDuration];
-//            int dur = activeProcess.getDuration();
-//            int remDur = activeProcess.getRemDuration();
-//            if(remDur>0){ //dur greater than 0, then only need to process further
-//                if(remDur>quantum){
-//                    time+=quantum; //increase value of time by how much time process processed
-//                    activeProcess.decRemDuration(quantum); //decrease rem duration for job by quantum size
-//                    for(int i=0; i<quantum;i++){
-//
-//                    }
-//                }else{
-//                    time += remDur; //inc value of time, shows how much time a process is processed
-//                    activeProcess.setWaitTime(time-dur); //wait time is time - duration used by process
-//                    activeProcess.setRemDuration(0);//process gets fully executed, set remaining duration to 0
-//                }
-//                jq.add(activeProcess); //pending process
-//            }
-//        }
+        Queue<Job> que = new LinkedList<>();
+        int quantum =1;
+        time=0;
+        numProcesses=jq.size();
+        System.out.println("SCHEDULED USING ROUND ROBIN\n");
+        instArr(jq,totalDuration);
+        checkStart(jq,que,time);
+        Job activeProcess=que.peek();
+        while(jq.size()>0 || que.size()>0){
+            for(int i=0; i<totalDuration;){
+                activeProcess=que.poll();
+                while(i<time){i++;}
+                for(int j=0; j<quantum && i<activeProcess.outputArr.length &&activeProcess.getRemDuration()>0;j++,i++,time++){
+                    activeProcess.outputArr[i]="X";
+                    activeProcess.decRemDuration();
+                }
+                checkStart(jq,que,time);
+                if(activeProcess.getRemDuration()>0){
+                    que.add(activeProcess);
+                }else{
+                    mapAdd(activeProcess);
+                }
+            }
+            if(!(activeProcess.getRemDuration()>0) && !(jq.size()>0)) {
+                activeProcess = null;
+            }
+        }
+        printMap();
+        mapOut.clear();
     }
 
     /*
@@ -145,7 +111,6 @@ public class Scheduler {
         Job activeProcess=jq.remove(0); //process that is being currently run
         while(jq.size()>0 || activeProcess!=null){
             int dur = activeProcess.getDuration();
-//            activeProcess.outputArr= new String[totalDuration];
             for(int i=0; i<totalDuration;){
                 for(int k=0;k<time && i<activeProcess.outputArr.length;k++,i++){
                     activeProcess.outputArr[i]=" "; //preceding spaces
@@ -320,6 +285,20 @@ public class Scheduler {
                 sb.append(jq.get(i).outputArr[j]);
             }
             System.out.println(sb.toString());
+        }
+    }
+
+    public void checkStart(ArrayList<Job> arr,Queue<Job> que,int time){
+        if(arr.size()>0){
+            for(Job x:arr){
+                if(x.getStart()<=time){
+                    que.add(x);
+
+                }
+            }
+            for(Job x:que){
+                arr.remove(x);
+            }
         }
     }
 
