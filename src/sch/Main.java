@@ -12,17 +12,17 @@ import java.util.Scanner;
 
 public class Main {
 
-    static ArrayList<Job> jobs = new ArrayList<>();    //job queue
-    static BufferedReader br;
-    static File file;
-    static Scheduler sch = new Scheduler();
-    static int totalDuration=0;
+    private static ArrayList<Job> jobs = new ArrayList<>();    //job queue
+    private static BufferedReader br; //buffer to read file
+    private static File file; //file to be read
+    private static Scheduler sch = new Scheduler(); //scheduler
+    private static int totalDuration=0; //total duration calc during parse
 
     public static void main(String[] args) {
-        start();
+        start(); //starts execution
     }
 
-    public static void start(){
+    private static void start(){
         try {
             file = new File(".");
             String path = file.getCanonicalPath();
@@ -42,7 +42,8 @@ public class Main {
             start();
         }catch (IOException t){}
     }
-    public static void parseFile(){ //take file, fill queue with newly created jobs
+
+    private static void parseFile(){ //take file, fill queue with newly created jobs
         String line;
         int duration;
         try { //try to read file line, split at tabs, then add to job queue as a newly created job

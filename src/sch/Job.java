@@ -9,10 +9,10 @@ package sch;
 public class Job implements Cloneable{
     private String name; //name of job
     private int sTime, duration,remDuration,waitTime; //start time, duration, remaining duration and wait time
-    public String[] outputArr; //array to hold the values to be printed or output
+    protected String[] outputArr; //array to hold the values to be printed or output
 
     //constructor
-    public Job(String name,int sTime, int duration){
+    protected Job(String name,int sTime, int duration){
         this.name=name;
         this.sTime=sTime;
         this.duration=duration;
@@ -22,7 +22,7 @@ public class Job implements Cloneable{
     }
 
     //default constructor
-    public Job(){
+    protected Job(){
         this.name=null;
         this.sTime=-1;
         this.duration=-1;
@@ -31,47 +31,47 @@ public class Job implements Cloneable{
     }
 
     //getter for duration
-    public int getRemDuration(){
+    protected int getRemDuration(){
         return this.remDuration;
     }
 
     //decrements duration by 1
-    public void decRemDuration(){
+    protected void decRemDuration(){
         this.remDuration-=1;
     }
 
     //returns the wait time for the job
-    public int getWaitTime(){
+    protected int getWaitTime(){
         return (this.waitTime-this.sTime);
     }
 
     //increments wait time by n
-    public void incWaitTime(int n){
+    protected void incWaitTime(int n){
         this.waitTime+=n;
     }
 
     //returns the calculated response ratio
     //RR = (w-s)/s
-    public float getResponseRatio(){
+    protected float getResponseRatio(){
         return (((this.waitTime-sTime)+this.duration)/this.duration);
     }
 
     //getter for name
-    public String getName(){
+    protected String getName(){
         return this.name;
     }
 
     //getter for start time
-    public int getStart(){
+    protected int getStart(){
         return this.sTime;
     }
 
     //getter for duration
-    public int getDuration(){
+    protected int getDuration(){
         return this.duration;
     }
 
-    public Job createClone() throws CloneNotSupportedException{
+    protected Job createClone() throws CloneNotSupportedException{
         Job clonedJob = (Job)super.clone();
         return clonedJob;
     }

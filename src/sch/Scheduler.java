@@ -25,7 +25,7 @@ public class Scheduler {
         effect of processes: penalizes short processes; penalizes I/O-bound processes
         starvation: no
     */
-    public void schedule_fcfs(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_fcfs(ArrayList<Job> jq, int totalDuration){
         Job activeProcess; //process that is being currently run
         time=0;
         System.out.println("\nSCHEDULED USING FIRST COME FIRST SERVE\n--------------------------------------------");
@@ -57,7 +57,7 @@ public class Scheduler {
         effect of processes: fair treatment
         starvation: no
     */
-    public void schedule_rr(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_rr(ArrayList<Job> jq, int totalDuration){
         Queue<Job> que = new LinkedList<>();
         int quantum =1;
         time=0;
@@ -98,7 +98,7 @@ public class Scheduler {
       effect of processes: penalizes long processes
       starvation: possible
   */
-    public void schedule_spn(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_spn(ArrayList<Job> jq, int totalDuration){
 
         System.out.println("\n\nSCHEDULED USING SHORTEST PROCESS NEXT\n--------------------------------------------");
         time=0;
@@ -137,7 +137,7 @@ public class Scheduler {
       effect of processes: penalizes long processes
       starvation: possible
     */
-    public void schedule_srt(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_srt(ArrayList<Job> jq, int totalDuration){
         System.out.println("\n\nSCHEDULED USING SHORTEST REMAINING TIME\n--------------------------------------------");
         Job min;
         time=0;
@@ -184,7 +184,7 @@ public class Scheduler {
       effect of processes: good balance
       starvation: no
     */
-    public void schedule_hrrn(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_hrrn(ArrayList<Job> jq, int totalDuration){
         System.out.println("\n\nSCHEDULED USING HIGHEST RESPONSE RATIO NEXT\n--------------------------------------------");
         time=0;
         instArr(jq,totalDuration);
@@ -220,7 +220,7 @@ public class Scheduler {
       effect of processes: may favor I/O-bound process
       starvation: possibles
     */
-    public void schedule_fb(ArrayList<Job> jq, int totalDuration){
+    protected void schedule_fb(ArrayList<Job> jq, int totalDuration){
         System.out.println("\n\nSCHEDULED USING FEEDBACK WITH A QUANTUM OF 1\n--------------------------------------------");
         Queue<Job> readyQueueTop = new LinkedList<>(); //high priority ready queue
         Queue<Job> readyQueueMid = new LinkedList<>(); //mid priority ready queue
@@ -229,7 +229,7 @@ public class Scheduler {
     }
 
     // perform all scheduling algorithms on jobs
-    public void schedule_all(ArrayList<Job> jq, int totalDuration)throws CloneNotSupportedException{
+    protected void schedule_all(ArrayList<Job> jq, int totalDuration)throws CloneNotSupportedException{
         System.out.println("\n\t\t\tALL SELECTED");
         copy = properClone(jq);
         schedule_fcfs(jq, totalDuration);
@@ -251,7 +251,7 @@ Helpers
 
     //given an array, go through and add any job who's start time has passed to the ready queue
     // and remove those elements from the array list
-    public void checkStart(ArrayList<Job> arr,Queue<Job> que,int time){
+    protected void checkStart(ArrayList<Job> arr,Queue<Job> que,int time){
         if(arr.size()>0){
             for(Job x:arr){
                 if(x.getStart()<=time){
@@ -266,7 +266,7 @@ Helpers
     }
 
     //get minimum for spn
-    public Job getMin(ArrayList<Job> arr,int time){
+    protected Job getMin(ArrayList<Job> arr,int time){
         Job min = null;
         for(Job x:arr){
             min=(min==null||(x.getDuration()<min.getDuration()&& x.getStart()<=time))?x:min;
@@ -275,7 +275,7 @@ Helpers
     }
 
     //get minimum time remaining
-    public Job getMin2(ArrayList<Job> arr,int time){
+    protected Job getMin2(ArrayList<Job> arr,int time){
         Job min = null;
         for(Job x:arr){
             min=(min==null||(x.getRemDuration()<=min.getRemDuration()&& x.getStart()<=time))?x:min;
@@ -284,7 +284,7 @@ Helpers
     }
 
     //instantiate array lists for processes
-    public void instArr(ArrayList<Job> j, int totalDuration){
+    protected void instArr(ArrayList<Job> j, int totalDuration){
         for(Job t:j){
             t.outputArr = new String[totalDuration];
         }
@@ -292,7 +292,7 @@ Helpers
     }
 
     //get highest response ratio from array list
-    public Job getMaxRR(ArrayList<Job> arr,int time){
+    protected Job getMaxRR(ArrayList<Job> arr,int time){
         Job max = null;
         for(Job x:arr){
             //if there is a job with a higher RR, is waiting past its start time, set that as max
@@ -302,14 +302,14 @@ Helpers
     }
 
     //increments every job's wait time in the array list by a certain dur
-    public void massIncWaitTime(ArrayList<Job> arr,int dur){
+    protected void massIncWaitTime(ArrayList<Job> arr,int dur){
         for(Job x:arr){
             x.incWaitTime(dur);
         }
     }
 
     //prints array list, used for testing. currently set up to test HRRN schedule
-    public void printArrayList(ArrayList<Job> jq){
+    protected void printArrayList(ArrayList<Job> jq){
         System.out.println("----------------");
         for (int i=0; i<jq.size();i++){
             System.out.println(jq.get(i).getName()+" RR:"+jq.get(i).getResponseRatio());
@@ -318,14 +318,14 @@ Helpers
     }
 
     //adds a job to the output map
-    public void mapAdd(Job activeProcess){
+    protected void mapAdd(Job activeProcess){
         if(!mapOut.containsValue(activeProcess)){
             mapOut.put(activeProcess.getName(),activeProcess);
         }
     }
 
     //prints the map of jobs
-    public void printMap(){
+    protected void printMap(){
         Iterator<Job> itr = mapOut.values().iterator();
         while (itr.hasNext()) {
             System.out.println(itr.next());
@@ -333,7 +333,7 @@ Helpers
     }
 
     //clones an array list given a source and returns a clone
-    public ArrayList<Job> properClone(ArrayList<Job> source)throws CloneNotSupportedException{
+    protected ArrayList<Job> properClone(ArrayList<Job> source)throws CloneNotSupportedException{
         ArrayList<Job> destination = new ArrayList<>();
         for(Job j:source){
             destination.add(j.createClone());
