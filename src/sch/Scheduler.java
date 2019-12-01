@@ -58,10 +58,10 @@ public class Scheduler {
         starvation: no
     */
     protected void schedule_rr(ArrayList<Job> jq, int totalDuration){
+        System.out.println("\n\nSCHEDULED USING ROUND ROBIN\n--------------------------------------------");
         Queue<Job> que = new LinkedList<>();
         int quantum =1;
         time=0;
-        System.out.println("\n\nSCHEDULED USING ROUND ROBIN\n--------------------------------------------");
         instArr(jq,totalDuration);
         checkStart(jq,que,time);
         Job activeProcess=que.peek();
@@ -226,6 +226,15 @@ public class Scheduler {
         Queue<Job> readyQueueMid = new LinkedList<>(); //mid priority ready queue
         Queue<Job> readyQueueLow = new LinkedList<>(); //low priority ready queue
         int quantum = 1; //time quantum
+        time=0;
+        instArr(jq,totalDuration); //instantiate top queue
+        do{//ensure
+            checkStart(jq,readyQueueTop,time); //fill top queue with any ready job from jq
+        }while(readyQueueTop.size()==0);
+        Job activeProcess = readyQueueTop.peek();
+        while (jq.size()>0 || activeProcess!=null){
+
+        }
     }
 
     // perform all scheduling algorithms on jobs

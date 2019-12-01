@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35ea4077-c22b-43cf-b9dd-9358a94f09ab" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/sch/Job.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Job.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sch/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sch/Scheduler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sch/Scheduler.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -18,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sch/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+            <state relative-caret-position="603">
+              <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
               <folding>
                 <element signature="e#0#2992#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -61,15 +59,16 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3256">
-              <caret line="335" column="13" selection-start-line="335" selection-start-column="13" selection-end-line="335" selection-end-column="13" />
+            <state relative-caret-position="419">
+              <caret line="233" column="49" lean-forward="true" selection-start-line="233" selection-start-column="49" selection-end-line="233" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
                 <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
                 <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
+                <element signature="method#schedule_spn#0;class#Scheduler#0" />
                 <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
                 <element signature="method#schedule_srt#0;class#Scheduler#0" />
                 <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
@@ -112,9 +111,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Job.java" />
-        <option value="$PROJECT_DIR$/src/sch/Scheduler.java" />
         <option value="$PROJECT_DIR$/src/sch/Job.java" />
         <option value="$PROJECT_DIR$/src/sch/Main.java" />
+        <option value="$PROJECT_DIR$/src/sch/Scheduler.java" />
       </list>
     </option>
   </component>
@@ -211,12 +210,12 @@
       <updated>1574881191081</updated>
       <workItem from="1574881195450" duration="4761000" />
       <workItem from="1574890241196" duration="7619000" />
-      <workItem from="1575057200745" duration="77524000" />
+      <workItem from="1575057200745" duration="78024000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89904000" />
+    <option name="totallyTimeSpent" value="90404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -255,20 +254,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/sch/Scheduler.java</url>
-          <line>100</line>
-          <properties class="sch.Scheduler" method="schedule_spn">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="123" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/function/Consumer.java">
@@ -492,34 +477,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3256">
-          <caret line="335" column="13" selection-start-line="335" selection-start-column="13" selection-end-line="335" selection-end-column="13" />
-          <folding>
-            <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
-            <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
-            <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
-            <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
-            <element signature="method#schedule_srt#0;class#Scheduler#0" />
-            <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
-            <element signature="method#schedule_hrrn#0;class#Scheduler#0" />
-            <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
-            <element signature="method#schedule_all#0;class#Scheduler#0" />
-            <element signature="method#checkStart#0;class#Scheduler#0" />
-            <element signature="method#getMin#0;class#Scheduler#0" />
-            <element signature="method#getMin2#0;class#Scheduler#0" />
-            <element signature="method#instArr#0;class#Scheduler#0" />
-            <element signature="method#getMaxRR#0;class#Scheduler#0" />
-            <element signature="method#massIncWaitTime#0;class#Scheduler#0" />
-            <element signature="method#printArrayList#0;class#Scheduler#0" />
-            <element signature="method#mapAdd#0;class#Scheduler#0" />
-            <element signature="method#printMap#0;class#Scheduler#0" />
-            <element signature="method#properClone#0;class#Scheduler#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Job.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-893">
@@ -548,13 +505,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sch/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="603">
+          <caret line="113" lean-forward="true" selection-start-line="113" selection-end-line="113" />
           <folding>
             <element signature="e#0#2992#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#542#543#0" expanded="true" />
             <element signature="e#570#571#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sch/Scheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="233" column="49" lean-forward="true" selection-start-line="233" selection-start-column="49" selection-end-line="233" selection-end-column="49" />
+          <folding>
+            <element signature="n#!!doc;n#schedule_fcfs#0;n#Scheduler#0" />
+            <element signature="n#!!doc;n#schedule_rr#0;n#Scheduler#0" />
+            <element signature="n#!!doc;n#schedule_spn#0;n#Scheduler#0" />
+            <element signature="method#schedule_spn#0;class#Scheduler#0" />
+            <element signature="n#!!doc;n#schedule_srt#0;n#Scheduler#0" />
+            <element signature="method#schedule_srt#0;class#Scheduler#0" />
+            <element signature="n#!!doc;n#schedule_hrrn#0;n#Scheduler#0" />
+            <element signature="method#schedule_hrrn#0;class#Scheduler#0" />
+            <element signature="n#!!doc;n#schedule_fb#0;n#Scheduler#0" />
+            <element signature="method#schedule_all#0;class#Scheduler#0" />
+            <element signature="method#checkStart#0;class#Scheduler#0" />
+            <element signature="method#getMin#0;class#Scheduler#0" />
+            <element signature="method#getMin2#0;class#Scheduler#0" />
+            <element signature="method#instArr#0;class#Scheduler#0" />
+            <element signature="method#getMaxRR#0;class#Scheduler#0" />
+            <element signature="method#massIncWaitTime#0;class#Scheduler#0" />
+            <element signature="method#printArrayList#0;class#Scheduler#0" />
+            <element signature="method#mapAdd#0;class#Scheduler#0" />
+            <element signature="method#printMap#0;class#Scheduler#0" />
+            <element signature="method#properClone#0;class#Scheduler#0" />
           </folding>
         </state>
       </provider>
