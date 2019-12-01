@@ -1,9 +1,15 @@
+/*
+    Stuart Small
+    sjs160530
+    CS 4348.501
+    Project 3
+ */
 package sch;
 
 public class Job implements Cloneable{
     private String name; //name of job
-    private int sTime, duration,remDuration,waitTime; //start time and duration of job
-    public String[] outputArr;
+    private int sTime, duration,remDuration,waitTime; //start time, duration, remaining duration and wait time
+    public String[] outputArr; //array to hold the values to be printed or output
 
     //constructor
     public Job(String name,int sTime, int duration){
@@ -24,64 +30,51 @@ public class Job implements Cloneable{
         this.waitTime=0;
     }
 
+    //getter for duration
     public int getRemDuration(){
         return this.remDuration;
     }
 
-    public void setRemDuration(int n){
-        this.remDuration=n;
-    }
-
-    public void decRemDuration(int n){
-        this.remDuration-=n;
-    }
-
+    //decrements duration by 1
     public void decRemDuration(){
         this.remDuration-=1;
     }
 
+    //returns the wait time for the job
     public int getWaitTime(){
-        return this.waitTime;
+        return (this.waitTime-this.sTime);
     }
 
-    public void incWaitTime(){
-        this.waitTime++;
-    }
-
+    //increments wait time by n
     public void incWaitTime(int n){
         this.waitTime+=n;
     }
 
-    public void incWT(){
-        this.waitTime++;
-    }
-
-    public void setOutputArr(int totalDuration){
-        this.outputArr= new String[totalDuration];
-    }
-
+    //returns the calculated response ratio
+    //RR = (w-s)/s
     public float getResponseRatio(){
         return (((this.waitTime-sTime)+this.duration)/this.duration);
     }
 
+    //getter for name
     public String getName(){
         return this.name;
     }
 
+    //getter for start time
     public int getStart(){
         return this.sTime;
     }
 
+    //getter for duration
     public int getDuration(){
         return this.duration;
     }
-
 
     public Job createClone() throws CloneNotSupportedException{
         Job clonedJob = (Job)super.clone();
         return clonedJob;
     }
-
 
     @Override
     public String toString() {

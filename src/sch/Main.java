@@ -1,32 +1,47 @@
+/*
+    Stuart Small
+    sjs160530
+    CS 4348.501
+    Project 3
+ */
 package sch;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
 
     static ArrayList<Job> jobs = new ArrayList<>();    //job queue
-    static ArrayList<Job> copy = new ArrayList<>();    //copy
     static BufferedReader br;
     static File file;
     static Scheduler sch = new Scheduler();
     static int totalDuration=0;
 
     public static void main(String[] args) {
-        try {//try to open file
-            file = new File("C:\\Users\\jacks\\Desktop\\School\\Fall19\\CS4348-OperatingSystems\\OS_Project3_SchedulingAlgo\\resources\\jobs.txt");
+        start();
+    }
+
+    public static void start(){
+        try {
+            file = new File(".");
+            String path = file.getCanonicalPath();
+            boolean choice = fileInputType();
+            if(choice){
+                path += "\\resources\\jobs.txt";
+            }else {
+                path = path+"\\resources\\"+promptFile();
+            }
+            file = new File(path);
             br = new BufferedReader(new FileReader(file));
             parseFile();
             promptUser();
         }catch (FileNotFoundException e){
-            System.out.println("File Not Found! Please figure it out.");
-            e.printStackTrace();
-        }
+            System.out.println("File Not Found! Please figure it out.\n You may need to add the file to the resource folder");
+            System.out.println("EXITING: Run Again and ensure .txt file is in resource folder, or select YES and run default job");
+            start();
+        }catch (IOException t){}
     }
-
     public static void parseFile(){ //take file, fill queue with newly created jobs
         String line;
         int duration;
@@ -42,16 +57,40 @@ public class Main {
         }
     }
 
-    private static void printQueue(){//output queue, testing function.
-        System.out.println("Printing Queue");
-        for(Job s : jobs) {
-            System.out.println(s.toString());
-        }
+    //how does the file want to be taken
+    private static String promptFile(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Ensure job is placed inside of resource directory if not jobs.txt, jobs1.txt, or jobs2.txt\nPlease enter file name: ");
+        String input = in.nextLine();
+        return input;
     }
 
+    private static boolean fileInputType(){
+        Scanner in = new Scanner(System.in);
+        System.out.print("\nEnter\n\tYES, to run with a default path to jobs.txt\n\tNO, to run with separate input file\n\t\t" +
+                "Note: File needs to be placed inside of resource directory if not jobs.txt, jobs1.txt, or jobs2.txt and NO is selected.\n\tEXIT, to exit the program\nINPUT:");
+        String input = in.nextLine();
+        if(input.equals("YES")){
+            System.out.println("\tYES SELECTED");
+            return true;
+        }else if(input.equals("NO")){
+            System.out.println("\tNO SELECTED");
+            return false;
+        }else if(input.equals("EXIT")){
+            System.out.println("\tEXIT SELECTED... GOODBYE");
+            System.exit(0);
+        }else{
+            System.out.println("\tINVALID INPUT: PROMPTING AGAIN");
+        }
+        return true;
+    }
+
+    //takes user prompt
     private static void promptUser(){
         try{
-            System.out.println("\n\tSelect Scheduling Algorithm\n\tFCFS\n\tRR\n\tSPN\n\tSRT\n\tHRRN\n\tFB\n\tALL\n\tEXIT");
+            System.out.println("\nSelect Scheduling Algorithm\n---------------------------" +
+                    "\n\tFCFS\n\tRR\n\tSPN\n\tSRT\n\tHRRN\n\tFB\n\tALL\n\tEXIT\n---------------------------");
+
             Scanner in = new Scanner(System.in);    //input scanner
             System.out.print("Make your selection: ");
             switch (in.nextLine()){

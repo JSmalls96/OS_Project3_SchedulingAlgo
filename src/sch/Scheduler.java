@@ -1,18 +1,19 @@
+/*
+    Stuart Small
+    sjs160530
+    CS 4348.501
+    Project 3
+ */
+
 package sch;
 
 import java.util.*;
 
 public class Scheduler {
     Map<String,Job> mapOut = new HashMap<>(); //map to store jobs based on their name, used for easy lookup during output formatting
-    ArrayList<Job> copy; //copy of arraylist used to reset process arraylist after changes
-    int numProcesses;
+    ArrayList<Job> copy; //copy of array list used to reset process array list after changes
     int time; //time passed, pointer
-    int wt=0; //wait time in system
-    int e; // time spent in execution so far, so would be totalDuration-remDur
 
-    // w = time spent in system so far, waiting
-    // e = time spent in execution so far
-    // s = total service time required by the process, including e; generally, this quantity must be estimated or supplied by user
 
     /*
         scheduling algorithm: first come first serve
@@ -27,17 +28,14 @@ public class Scheduler {
     public void schedule_fcfs(ArrayList<Job> jq, int totalDuration){
         Job activeProcess; //process that is being currently run
         time=0;
-        numProcesses = jq.size(); //number of processes parsed from file
-        System.out.println("SCHEDULED USING FIRST COME FIRST SERVE\n");
+        System.out.println("\nSCHEDULED USING FIRST COME FIRST SERVE\n--------------------------------------------");
         while(jq.size()>0){
             activeProcess=jq.remove(0);
             activeProcess.outputArr= new String[totalDuration];
             int dur = activeProcess.getDuration();
             for(int i=0; i<totalDuration;){
-                for(int k=0;k<time && i<activeProcess.outputArr.length;k++,i++){//preceding spaces
-                    activeProcess.outputArr[i]=" ";
-                }
-                for(;dur>0&&i<totalDuration;dur--,i++,time++){//active location
+                while(i<time){i++;}
+                for(;dur>0;dur--,i++,time++){//active location
                     activeProcess.outputArr[i]="X";
                 }
                 if(i>=time && i<activeProcess.outputArr.length){//later spaces
@@ -47,7 +45,6 @@ public class Scheduler {
             }
             System.out.println(activeProcess.toString());
         }
-        System.out.println("Scheduling "+numProcesses+" jobs took a total of "+totalDuration+ " time units");
     }
 
     /*
@@ -64,8 +61,7 @@ public class Scheduler {
         Queue<Job> que = new LinkedList<>();
         int quantum =1;
         time=0;
-        numProcesses=jq.size();
-        System.out.println("\nSCHEDULED USING ROUND ROBIN");
+        System.out.println("\n\nSCHEDULED USING ROUND ROBIN\n--------------------------------------------");
         instArr(jq,totalDuration);
         checkStart(jq,que,time);
         Job activeProcess=que.peek();
@@ -104,17 +100,14 @@ public class Scheduler {
   */
     public void schedule_spn(ArrayList<Job> jq, int totalDuration){
 
-        System.out.println("\nSCHEDULED USING SHORTEST PROCESS NEXT");
+        System.out.println("\n\nSCHEDULED USING SHORTEST PROCESS NEXT\n--------------------------------------------");
         time=0;
-        numProcesses = jq.size(); //number of processes parsed from file
         instArr(jq,totalDuration);
         Job activeProcess=jq.remove(0); //process that is being currently run
         while(jq.size()>0 || activeProcess!=null){
             int dur = activeProcess.getDuration();
             for(int i=0; i<totalDuration;){
-                for(int k=0;k<time && i<activeProcess.outputArr.length;k++,i++){
-                    activeProcess.outputArr[i]=" "; //preceding spaces
-                }
+                while(i<time){i++;}
                 for(;dur>0&&i<totalDuration;dur--,i++,time++){
                     activeProcess.outputArr[i]="X"; //active location
                 }
@@ -132,7 +125,6 @@ public class Scheduler {
         }
         printMap();
         mapOut.clear();
-        System.out.println("\nScheduling "+numProcesses+" jobs took a total of "+totalDuration+ " time units\n");
     }
 
     /*
@@ -146,23 +138,14 @@ public class Scheduler {
       starvation: possible
     */
     public void schedule_srt(ArrayList<Job> jq, int totalDuration){
-        System.out.println("\nSCHEDULED USING SHORTEST REMAINING TIME");
+        System.out.println("\n\nSCHEDULED USING SHORTEST REMAINING TIME\n--------------------------------------------");
         Job min;
-        numProcesses=jq.size();
         time=0;
         instArr(jq,totalDuration);
         Job activeProcess = jq.remove(0);
         while(jq.size()>0 || activeProcess!=null){ // if the array list is empty or if there is a process active
             for(int i=0; i<totalDuration;i++){
-                for(int k=0;k<time && i<activeProcess.outputArr.length;k++,i++){
-                    try{
-                        if(activeProcess.outputArr[i].equals('X')){
-                            activeProcess.outputArr[i]="X"; //preceding spaces
-                        }
-                    }catch (NullPointerException e){
-                        activeProcess.outputArr[i]=" "; //preceding spaces
-                    }
-                }
+                while(i<time){i++;}
                 for(;activeProcess.getRemDuration()>0&&i<totalDuration;i++,time++){
                     activeProcess.outputArr[i]="X";
                     activeProcess.decRemDuration();
@@ -178,12 +161,13 @@ public class Scheduler {
                     i++;
                 }
             }
-            mapAdd(activeProcess);
+            mapAdd(activeProcess);//add completed process to map
 
+            //continuation case, either exit or continue
             if(!(activeProcess.getRemDuration()>0) && !(jq.size()>0)){
                 activeProcess=null;
             }else{
-                activeProcess = jq.remove(jq.indexOf(getMin(jq,time)));
+                activeProcess = jq.remove(jq.indexOf(getMin2(jq,time)));
             }
         }
         printMap();
@@ -201,9 +185,8 @@ public class Scheduler {
       starvation: no
     */
     public void schedule_hrrn(ArrayList<Job> jq, int totalDuration){
-        System.out.println("\nSCHEDULED USING HIGHEST RESPONSE RATIO NEXT");
+        System.out.println("\n\nSCHEDULED USING HIGHEST RESPONSE RATIO NEXT\n--------------------------------------------");
         time=0;
-        numProcesses = jq.size(); //number of processes parsed from file
         instArr(jq,totalDuration);
         Job activeProcess=jq.remove(0); //process that is being currently run
         while(jq.size()>0 || activeProcess!=null){
@@ -238,24 +221,19 @@ public class Scheduler {
       starvation: possibles
     */
     public void schedule_fb(ArrayList<Job> jq, int totalDuration){
-        int quantum = 1;
-        System.out.println("\nSCHEDULED USING FEEDBACK WITH A QUANTUM OF 1");
+        System.out.println("\n\nSCHEDULED USING FEEDBACK WITH A QUANTUM OF 1\n--------------------------------------------");
+        Queue<Job> readyQueueTop = new LinkedList<>(); //high priority ready queue
+        Queue<Job> readyQueueMid = new LinkedList<>(); //mid priority ready queue
+        Queue<Job> readyQueueLow = new LinkedList<>(); //low priority ready queue
+        int quantum = 1; //time quantum
     }
 
     // perform all scheduling algorithms on jobs
     public void schedule_all(ArrayList<Job> jq, int totalDuration)throws CloneNotSupportedException{
+        System.out.println("\n\t\t\tALL SELECTED");
         copy = properClone(jq);
-        printArrayList(copy);
-        printArrayList(jq);
-        System.out.println("ALL SELECTED");
         schedule_fcfs(jq, totalDuration);
-//        System.out.println("1");
-        printArrayList(jq);
-//        System.out.println("2");
-//        printArrayList(copy);
         jq = properClone(copy);
-//        System.out.println("3");
-        printArrayList(jq);
         schedule_rr(jq, totalDuration);
         jq = properClone(copy);
         schedule_spn(jq, totalDuration);
@@ -267,48 +245,12 @@ public class Scheduler {
         schedule_fb(jq, totalDuration);
     }
 
-    public void mapAdd(Job activeProcess){
-        if(!mapOut.containsValue(activeProcess)){
-            mapOut.put(activeProcess.getName(),activeProcess);
-        }
-    }
+/*
+Helpers
+ */
 
-    public void printArrayList(ArrayList<Job> jq){
-        System.out.println("----------------");
-        for (int i=0; i<jq.size();i++){
-            System.out.println(jq.get(i).getName()+" RR:"+jq.get(i).getResponseRatio());
-        }
-        System.out.println("----------------");
-    }
-
-    public void printMap(){
-        Iterator<Job> itr = mapOut.values().iterator();
-        while (itr.hasNext()) {
-            System.out.println(itr.next());
-        }
-    }
-
-    public ArrayList<Job> properClone(ArrayList<Job> source)throws CloneNotSupportedException{
-        ArrayList<Job> destination = new ArrayList<>();
-        for(Job j:source){
-            destination.add(j.createClone());
-        }
-        return destination;
-    }
-
-    public void output(ArrayList<Job> jq){
-        System.out.println(jq.size());
-        for(int i=0;i<jq.size();i++){
-            StringBuilder sb = new StringBuilder();
-            sb.append(jq.get(i).getName()+ " ");
-            System.out.println(jq.get(i).outputArr.length);
-            for(int j=0;i<jq.get(i).outputArr.length;i++){
-                sb.append(jq.get(i).outputArr[j]);
-            }
-            System.out.println(sb.toString());
-        }
-    }
-
+    //given an array, go through and add any job who's start time has passed to the ready queue
+    // and remove those elements from the array list
     public void checkStart(ArrayList<Job> arr,Queue<Job> que,int time){
         if(arr.size()>0){
             for(Job x:arr){
@@ -332,13 +274,7 @@ public class Scheduler {
         return min;
     }
 
-    public void massIncWaitTime(ArrayList<Job> arr,int dur){
-        for(Job x:arr){
-            x.incWaitTime(dur);
-        }
-    }
-
-    //get minimum for spt
+    //get minimum time remaining
     public Job getMin2(ArrayList<Job> arr,int time){
         Job min = null;
         for(Job x:arr){
@@ -347,7 +283,7 @@ public class Scheduler {
         return min;
     }
 
-    //instantiate arraylists for processes
+    //instantiate array lists for processes
     public void instArr(ArrayList<Job> j, int totalDuration){
         for(Job t:j){
             t.outputArr = new String[totalDuration];
@@ -355,11 +291,53 @@ public class Scheduler {
 
     }
 
-    public Job getMaxRR(ArrayList<Job> arr,int time){ //get highest response ratio from arraylist
+    //get highest response ratio from array list
+    public Job getMaxRR(ArrayList<Job> arr,int time){
         Job max = null;
         for(Job x:arr){
+            //if there is a job with a higher RR, is waiting past its start time, set that as max
             max=(max==null||(x.getResponseRatio()>=max.getResponseRatio()&& x.getStart()<=time))?x:max;
         }
         return max;
+    }
+
+    //increments every job's wait time in the array list by a certain dur
+    public void massIncWaitTime(ArrayList<Job> arr,int dur){
+        for(Job x:arr){
+            x.incWaitTime(dur);
+        }
+    }
+
+    //prints array list, used for testing. currently set up to test HRRN schedule
+    public void printArrayList(ArrayList<Job> jq){
+        System.out.println("----------------");
+        for (int i=0; i<jq.size();i++){
+            System.out.println(jq.get(i).getName()+" RR:"+jq.get(i).getResponseRatio());
+        }
+        System.out.println("----------------");
+    }
+
+    //adds a job to the output map
+    public void mapAdd(Job activeProcess){
+        if(!mapOut.containsValue(activeProcess)){
+            mapOut.put(activeProcess.getName(),activeProcess);
+        }
+    }
+
+    //prints the map of jobs
+    public void printMap(){
+        Iterator<Job> itr = mapOut.values().iterator();
+        while (itr.hasNext()) {
+            System.out.println(itr.next());
+        }
+    }
+
+    //clones an array list given a source and returns a clone
+    public ArrayList<Job> properClone(ArrayList<Job> source)throws CloneNotSupportedException{
+        ArrayList<Job> destination = new ArrayList<>();
+        for(Job j:source){
+            destination.add(j.createClone());
+        }
+        return destination;
     }
 }
